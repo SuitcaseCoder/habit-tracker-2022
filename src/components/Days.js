@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { DateTime } from 'luxon';
 
 export default function Days() {
     return (
         <div>
             <ul>
-                <li>1</li>
+                <li>DateTime.local(2022, 1, 15).day</li>
                 <li>2</li>
                 <li>3</li>
                 <li>4</li>

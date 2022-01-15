@@ -1,27 +1,31 @@
 import React from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
 
-export default function Form(props) {
+// destructured props 
+export default function Form({setHabits, habits}) {
 
-    console.log(props)
+    const [newHabit, setNewHabit] = useState('');
+
+
     // const [newHabit, setNewHabit] = useState('');
 
-    var handleSubmit = (e) => {
-        console.log(" click *clicked* ")
-        console.log(e);
-        // props.setNewHabit(props.newHabit);
-        
+    const handleSubmit = () => {
+        // e.preventDefault();
+    
+        console.log(" click *clicked* ");
+         // this uses the spread operator to bring in existing habits and 'pushes' new habit to the end of it AND it triggers a re-render; --> "soft copy" of the object, copies the values not the reference
+        setHabits([...habits, newHabit]);     
+        setNewHabit('');  
     }
 
     return (
         <div>
-            <form>
             <label>
                 Habit:
-                <input type="text" name="habit" onChange={e=>props.setNewHabit(e.target.value)} />
+                <input type="text" name="habit" onChange={e=>setNewHabit(e.target.value)} />
             </label>
-            <button type="submit"  onSubmit={handleSubmit()}>Click</button>
-            </form>
+            <button type="button"  onClick={handleSubmit}>Click</button>
+
         </div>
     )
 }

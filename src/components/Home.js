@@ -9,15 +9,16 @@ import Month from './Month'
 
 export default function Home() {
 
-    const [newHabit, setNewHabit] = useState('');
+    const [habits, setHabits] = useState([]);
 
 
     return (
         <div>
             <Month />
-            <Form setNewHabit={setNewHabit} newHabit={newHabit}/>
+            <Form setHabits={setHabits} habits={habits}/>
             <hr />
-            <Habits newHabit={newHabit} />
+            {habits.toString()}
+            <Habits habits={habits} />
             <Days />
             <ToggleBtn />
         </div>
