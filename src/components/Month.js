@@ -1,9 +1,11 @@
 import React from 'react'
+import { DateTime } from 'luxon';
+
 
 export default function Month() {
     return (
         <div>
-            January 2022
+            {DateTime.local().monthLong}
         </div>
     )
 }

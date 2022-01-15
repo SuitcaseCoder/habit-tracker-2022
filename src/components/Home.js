@@ -28,6 +28,7 @@ export default function Home() {
 
   return (
     <div>
+        {DateTime.local().weekYear}
       <Month />
       <Form setHabits={setHabits} habits={habits} />
       <hr />
