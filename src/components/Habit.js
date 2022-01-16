@@ -1,4 +1,5 @@
 import React from "react";
+import { Col } from "react-bootstrap";
 import ToggleBtn from "./ToggleBtn";
 
 
@@ -16,11 +17,13 @@ export default function Habit({ singleHabit, currentNumDays }) {
 }
 
   return (
+      <Col>
     <div>
       <h2>{singleHabit}</h2>
       <ul>
         {createToggles()}
     </ul>
     </div>
+    </Col>
   );
 }

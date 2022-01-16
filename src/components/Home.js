@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { DateTime } from 'luxon';
+import { Container, Row, Col } from "react-bootstrap";
 
 
 import Form from "./Form";
@@ -12,7 +13,7 @@ import Month from "./Month";
 function createDates(){
     const dateList = [];
     for(let i = 0; i < DateTime.local().daysInMonth; i++ ){
-        dateList.push(<li>{i + 1}</li>);
+        dateList.push(<li key={i}>{i + 1}</li>);
     }   
     return dateList;
 }
@@ -27,16 +28,30 @@ export default function Home() {
 
 
   return (
-    <div>
-        {DateTime.local().weekYear}
-      <Month />
-      <Form setHabits={setHabits} habits={habits} />
-      <hr />
+      <Container>
+        <Row>
+    {/* <div> */}
+            {DateTime.local().weekYear}
+            <Month />
+        </Row>
+        <Row>
+            <Form setHabits={setHabits} habits={habits} />
+            <hr />
+        </Row>
+        <Row>
+            <Col xs md lg="2">
+                <Days days={days}/>
+            </Col>
+
       {habits.map((singleHabit) => (
-        <Habit singleHabit={singleHabit} currentNumDays={currentNumDays} />
+            <Col>
+                <Habit singleHabit={singleHabit} currentNumDays={currentNumDays} />
+            </Col>
       ))}
-      <Days days={days}/>
-    </div>
+
+      </Row>
+    {/* </div> */}
+    </Container>
   );
 }
 

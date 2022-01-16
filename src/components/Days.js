@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
  
+import styles from '../styles';
 
 
 
@@ -10,7 +11,7 @@ export default function Days({days}) {
 
     return (
         <div>
-            <ul>
+            <ul style={styles.Ul}>
                 {days}
             </ul>
         </div>
